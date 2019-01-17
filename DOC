@@ -1,1 +1,96 @@
-README.txt
+Help on module nra_whoisd:
+
+NAME
+    mwhoisd
+
+FILE
+    /home/bruno/tbc/mwhois/whois.py
+
+DESCRIPTION
+    
+    Source: git clone https://github.com/DaKnOb/mwhois.git
+    Reference: https://tools.ietf.org/html/rfc3912
+    Modified by: bruno.on.the.road@gmail.com
+    
+    Description: 
+    mwhoisd.py is a server software compatible with the whois command
+    on most linux and unix systems.  It is  fully compliant with the
+    RFC 3912. It can serve domain name and  IPv4  whois records when
+    queried and uses a linux / unix filesystem structure for storing
+    all the records. 
+    
+    Requirements:
+    - Linux / Unix based operating system
+    - Python 2.7
+    
+    Usage:
+    In order to use the server, simply run the whois command  in
+    any operating system with the -h flag followed by your server's
+    IP Address and then the  query.  An  example  asking  localhost
+    about 10.0.0.0 is: whois -h 127.0.0.1 10.0.0.1.
+    
+    Storage Structure:
+    The database that is served by whoisd is using the linux / unix
+    filesystem in order to store content. There is a  folder  named
+    "db" with two primary sub-folders, "ipv4" and "domains". In the
+    first folder, all whois content for IPv4 Addresses is  located,
+    and in the second folder, there is all the  whois  content  for 
+    the domain names. All IPv4 records are stored  in  files  named
+    after the IP Address  CIDR  Block.  For  example,  the  network
+    10.0.0.0/8 is stored in a file named 10.0.0.0-8  that  contains
+    all the information that will be served. All the new  lines  in
+    this file must be represented by <CR><LF> in order to  maintain
+    full compatibility with RFC 3912. As far as  domain  names  are 
+    concerned, the storage is similar, where the name of  the  file 
+    is the actual domain name.
+    
+    Protocol Example:
+    If one places a request of the WHOIS server located at 
+    whois.nic.mil for information about "Smith", the packets on the
+    wire will look like:
+    
+    client                           server at whois.nic.mil
+    
+    open TCP   ---- (SYN) ------------------------------>
+               <---- (SYN+ACK) -------------------------
+    send query ---- "Smith<CR><LF>" -------------------->
+    get answer <---- "Info about Smith<CR><LF>" ---------
+               <---- "More info about Smith<CR><LF>" ----
+    close      <---- (FIN) ------------------------------
+               ----- (FIN) ----------------------------->
+
+FUNCTIONS
+    isDomain(qr)
+        # Check if the input is a valid domain name
+    
+    isIP(qr)
+        # Check if the input is a valid IPv4 Address
+    
+    isIPinCIDR(ip, network)
+        # Check if an IP belongs to a CIDR IP block
+    
+    main()
+        # Starts the whois daemon, validates query and responses
+    
+    sanitizeQuery(qr)
+        #       Sanitize the query received
+    
+    strftime(...)
+        strftime(format[, tuple]) -> string
+        
+        Convert a time tuple to a string according to a format specification.
+        See the library reference manual for formatting codes. When the time tuple
+        is not present, current time as returned by localtime() is used.
+
+DATA
+    LISTEN_ADDRESS = '0.0.0.0'
+    LISTEN_PORT = 43
+    LOGFILE = '/var/log/mwhois.log'
+    MAX_QUERY_SIZE = 128
+    __version__ = 1.0
+    n = '\r\n'
+
+VERSION
+    1.0
+
+
