@@ -1,7 +1,61 @@
 #!/usr/bin/python
+'''
+Author: bruno.on.the.road@gmail.com
+
+This tool converts a predefined csv table into the whoisd data containers.
+
+From:
+
+"ipv4","Gateway","Technical POC","Domain"
+"10.10.10.0/24","BCO3","bruno@dogs","dogs.animals.here"
+"10.10.20.0/24","20B303","luke@cats","cats.animals.here"
+"10.10.30.0/24","77B3A1","mike@sparrows","sparrows.animals.here"
+"10.10.31.0/25","87B3A1","helga@donkeys","donkeys.animals.here"
+"10.10.31.128/25","87U301","teresa@cows","cows.animals.here"
+"10.10.69.16/28","55P309","michelle@elephants","elephants.animals.here"
+
+To:
+
+db
+	domains
+		cats.animals.here -> ../ipv4/10.10.20.0-24
+		cows.animals.here -> ../ipv4/10.10.31.128-25
+		dogs.animals.here -> ../ipv4/10.10.10.0-24
+		donkeys.animals.here -> ../ipv4/10.10.31.0-25
+		elephants.animals.here -> ../ipv4/10.10.69.16-28
+		sparrows.animals.here -> ../ipv4/10.10.30.0-24
+	ipv4
+		10.10.10.0-24
+		10.10.20.0-24
+		10.10.30.0-24
+		10.10.31.0-25
+		10.10.31.128-25
+		10.10.69.16-28
+
+Containter content:
+
+cat db/ipv4/10.10.10.0-24
+
+Domain         : dogs.animals.here             
+Technical POC  : bruno@dogs                    
+ipv4           : 10.10.10.0/24                 
+Gateway        : BCO3
+
+
+cat db/domains/cows.animals.here
+
+Domain         : cows.animals.here             
+Technical POC  : teresa@cows                   
+ipv4           : 10.10.31.128/25               
+Gateway        : 87U301                        
+                          
+Preruiqisites:  Ensure that the db/domains and db/ipv4 directories exist.
+
+'''
 
 import csv
 import os
+
 
 debug = False
 csv_path = "./mwhois_data.csv"
