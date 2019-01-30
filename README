@@ -1,7 +1,7 @@
 Help on module nra-whoisd:
 
 NAME
-    nra-whoisd - Bruno's NCIA Naming & Registration's Simple whois service
+    nra-whoisd - Bruno's Naming & Registration's Simple whois service
 
 FILE
     /home/bruno/tbc/mwhois/nra-whoisd.py
