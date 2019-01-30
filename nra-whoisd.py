@@ -2,7 +2,7 @@
 
 '''
 
-Bruno's NCIA Naming & Registration's Simple whois service 
+Bruno's Naming & Registration's Simple whois service 
 
 Source: git clone https://github.com/DaKnOb/mwhois.git
 Reference: https://tools.ietf.org/html/rfc3912
