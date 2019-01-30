@@ -1,0 +1,6 @@
+[Unit]
+Description=Python Service
+
+
+[Service]
+ExecStart=/usr/local/bin/nra-whoisd.py

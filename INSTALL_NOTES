@@ -1,0 +1,40 @@
+INSTALLATION PROCEDURE FOR UBUNTU and deriviates
+
+Using sudo:
+
+- Install the python netaddr module (preferably using pip)
+
+- Copy nra-whoisd.py --> /usr/local/bin
+
+- Copy nra-whois-zeroise-containers.py --> /usr/local/bin
+
+- Copy nra-whois-load-containers.py --> /usr/local/bin
+
+- Copy nra-whoisd.service --> /etc/systemd/system
+
+- mkdir -p /var/lib/nra-whois/db/ipv4/
+
+- mkdir -p /var/lib/nra-whois/db/domains/
+
+
+- Execute systemd commands
+
+# In case service file has changed
+- systemctl daemon-reload 
+
+# Manual command modes
+- systemctl start|stop|restart|status nra-whoisd.service
+
+# Load on boot commands
+- systemctl enable|disable nra-whoisd.service
+
+#S how log fr specific service
+- journalctl -u nra-whoisd.service
+
+
+- External links
+  
+- https://www.loggly.com/blog/new-style-daemons-python/
+
+- https://www.devdungeon.com/content/creating-systemd-service-files
+
