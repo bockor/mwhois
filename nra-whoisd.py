@@ -2,23 +2,24 @@
 
 '''
 
-Bruno's Naming & Registration's Simple whois service 
+N A T O    U N C L A S S I F I E D
+
+NCIA Naming & Registration's Simple whois service
 
 Source: git clone https://github.com/DaKnOb/mwhois.git
 Reference: https://tools.ietf.org/html/rfc3912
-Modified by: bruno.on.the.road@gmail.com
+Modified by: bruno.seys@ncia.nato.int
 
-Description: 
-nra-whoisd.py is a server software compatible with the whois command
+Description:
+whoisd.py is a server software compatible with the whois command
 on most linux and unix systems.  It is  fully compliant with the
 RFC 3912. It can serve domain name and  IPv4  whois records when
 queried and uses a linux / unix filesystem structure for storing
-all the records. 
+all the records.
 
 Requirements:
 - Linux / Unix based operating system
 - Python 2.7
-- python netaddr module
 
 Usage:
 In order to use the server, simply run the whois command  in
@@ -31,18 +32,18 @@ The database that is served by whoisd is using the linux / unix
 filesystem in order to store content. There is a  folder  named
 "db" with two primary sub-folders, "ipv4" and "domains". In the
 first folder, all whois content for IPv4 Addresses is  located,
-and in the second folder, there is all the  whois  content  for 
+and in the second folder, there is all the  whois  content  for
 the domain names. All IPv4 records are stored  in  files  named
 after the IP Address  CIDR  Block.  For  example,  the  network
 10.0.0.0/8 is stored in a file named 10.0.0.0-8  that  contains
 all the information that will be served. All the new  lines  in
 this file must be represented by <CR><LF> in order to  maintain
-full compatibility with RFC 3912. As far as  domain  names  are 
-concerned, the storage is similar, where the name of  the  file 
+full compatibility with RFC 3912. As far as  domain  names  are
+concerned, the storage is similar, where the name of  the  file
 is the actual domain name.
 
 Protocol Example:
-If one places a request of the WHOIS server located at 
+If one places a request of the WHOIS server located at
 whois.nic.mil for information about "Smith", the packets on the
 wire will look like:
 
@@ -60,7 +61,7 @@ close      <---- (FIN) ------------------------------
 
 import socket, os, re
 from time import strftime
-from netaddr import IPAddress, IPNetwork 
+from netaddr import IPAddress, IPNetwork
 
 IPDB = "/var/lib/nra-whois/db/ipv4/"
 DOMAINDB = "/var/lib/nra-whois/db/domains/"
@@ -84,7 +85,7 @@ def sanitizeQuery(qr):
 	return qr
 
 # Check if the input is a valid IPv4 Address
-def isIP(qr):
+def isIPv4(qr):
 	bytez = qr.split(".")
 	if(len(bytez) != 4):
 		return False
@@ -117,11 +118,11 @@ def isDomain(qr):
 	return True
 
 # Check if an IP belongs to a CIDR IP block
-def isIPinCIDR(ip, network):
+def isIPv4inCIDR(ip, network):
 	return IPAddress(ip) in IPNetwork(network)
 
 
-# Starts the whois daemon, validates query and responses 
+# Starts the whois daemon, validates query and responses
 def main():
 	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	try:
@@ -139,10 +140,10 @@ def main():
 			if not query:
 				break
 			log = log + query.replace("\r\n", "").replace("\n", "") + " - "
-			query = sanitizeQuery(query)	
+			query = sanitizeQuery(query)
 
 			rsp = 		"# +---------------------------------+" + n
-			rsp = rsp + "# |           Bruno's               |" + n
+			rsp = rsp + "# |             NCIA                |" + n
 			rsp = rsp + "# +---------------------------------+" + n
 			rsp = rsp + "# | NAMING & REGISTRATION AUTHORITY |" + n
 			rsp = rsp + "# +---------------------------------+" + n
@@ -150,14 +151,14 @@ def main():
 			rsp = rsp + "# +---------------------------------+" + n
 			rsp = rsp + n
 
-			if(isIP(query)):
+			if(isIPv4(query)):
 				# WHOIS IPv4
 				log = log + "IPv4"
 				ipdb = os.listdir(IPDB)
 				for ipe in ipdb:
 					ipe = ipe.replace("-", "/")
 					found = False
-					if(isIPinCIDR(query, ipe)):
+					if(isIPv4inCIDR(query, ipe)):
 						dd = open( IPDB + ipe.replace("/", "-"), "r")
 						rsp = rsp + dd.read()
 						dd.close()
@@ -172,7 +173,7 @@ def main():
 			elif(isDomain(query)):
 				# WHOIS Domain
 				log = log + "Domain"
-			
+
 				domaindb = os.listdir(DOMAINDB)
 				for domain in domaindb:
 					found = False
@@ -188,7 +189,7 @@ def main():
 					rsp = rsp + "# Domain name was not found in the whois database" + n
 					log = log + " (Not found)" + n
 			else:
-				# Unrecognized	
+				# Unrecognized
 				log = log + "Unrecognized" + n
 				rsp = rsp + n
 				rsp = rsp + "# Error. Unknown query type. Query is not IPv4 or Domain " + n
