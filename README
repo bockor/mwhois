@@ -63,10 +63,10 @@ FUNCTIONS
     isDomain(qr)
         # Check if the input is a valid domain name
     
-    isIP(qr)
+    isIPv4(qr)
         # Check if the input is a valid IPv4 Address
     
-    isIPinCIDR(ip, network)
+    isIPv4inCIDR(ip, network)
         # Check if an IP belongs to a CIDR IP block
     
     main()
