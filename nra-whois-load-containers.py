@@ -17,40 +17,40 @@ From:
 
 To:
 
-db
-	domains
-		cats.animals.here -> ../ipv4/10.10.20.0-24
-		cows.animals.here -> ../ipv4/10.10.31.128-25
-		dogs.animals.here -> ../ipv4/10.10.10.0-24
-		donkeys.animals.here -> ../ipv4/10.10.31.0-25
-		elephants.animals.here -> ../ipv4/10.10.69.16-28
-		sparrows.animals.here -> ../ipv4/10.10.30.0-24
-	ipv4
-		10.10.10.0-24
-		10.10.20.0-24
-		10.10.30.0-24
-		10.10.31.0-25
-		10.10.31.128-25
-		10.10.69.16-28
+domains
+	caoc.nato.int
+	desert.nato.int
+	hq.nato.int
+	jfc.nato.int
+	life-oak.nato.int
+	shape.nato.int
+ipv4
+	10.10.10.0-24 -> ../domains/shape.nato.int
+	10.10.20.0-24 -> ../domains/hq.nato.int
+	10.10.30.0-24 -> ../domains/jfc.nato.int
+	10.10.31.0-25 -> ../domains/life-oak.nato.int
+	10.10.31.128-25 -> ../domains/caoc.nato.int
+	10.10.69.16-28 -> ../domains/desert.nato.int
+
 
 Containter content:
 
 cat db/ipv4/10.10.10.0-24
 
-Domain         : dogs.animals.here             
-Technical POC  : bruno@dogs                    
-ipv4           : 10.10.10.0/24                 
+Domain         : dogs.animals.here
+Technical POC  : bruno@dogs
+ipv4           : 10.10.10.0/24
 Gateway        : BCO3
 
 
 cat db/domains/cows.animals.here
 
-Domain         : cows.animals.here             
-Technical POC  : teresa@cows                   
-ipv4           : 10.10.31.128/25               
-Gateway        : 87U301                        
-                          
-Preruiqisites:  Ensure that the /var/lib/nra-whois/db/domains/ and 
+Domain         : cows.animals.here
+Technical POC  : teresa@cows
+ipv4           : 10.10.31.128/25
+Gateway        : 87U301
+
+Preruiqisites:  Ensure that the /var/lib/nra-whois/db/domains/ and
     /var/lib/nra-whois/db/ipv4/ directories exist.
 
 '''
@@ -66,7 +66,7 @@ container_path_domains = "/var/lib/nra-whois/db/domains/"
 
 try:
     sys.argv[1]
-except IndexError:    
+except IndexError:
     print("Provide /path/to/your/csv-file here!")
     sys.exit(5)
 else:
@@ -83,13 +83,13 @@ if (debug):
 
 #Using sum() with a generator expression makes for an efficient counter,
 #avoiding storing the whole file in memory.
-#row_count = sum(1 for row in reader) 
+#row_count = sum(1 for row in reader)
 
 #rows = [row for row in reader] # read the remaining data
 
 '''
 create a dictionary object that maps
-csv_header -> csv_row[cell] 
+csv_header -> csv_row[cell]
 '''
 for row in reader:
     entries = {key:value for key,value in zip(keys,row)}
@@ -99,15 +99,15 @@ for row in reader:
     load the dictionary into a whoisd container
     '''
     try:
-        container_filename_ipv4 = row[csv_column_ipv4].replace("/", "-")
         container_filename_domains = row[csv_column_domains]
-        with open(container_path_ipv4 + container_filename_ipv4, "w+") as c:
+        container_filename_ipv4 = row[csv_column_ipv4].replace("/","-")
+        with open(container_path_domains + container_filename_domains, "w+") as c:
             for key,value in entries.items():
                 c.write('%-15s: %-30s\n' % (key, value))
-            os.symlink('../ipv4/' + container_filename_ipv4, container_path_domains + container_filename_domains)  
+            os.symlink('../domains/' + container_filename_domains, container_path_ipv4 + container_filename_ipv4)
     except:
         print("Oops! Something is broken in the writing process.")
     print('[*] container ' + row[csv_column_ipv4] + ' loaded')
     print('[*] container ' + row[csv_column_domains] + ' loaded')
 
-print('Done!') 
+print('Done!')

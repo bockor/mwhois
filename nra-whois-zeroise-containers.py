@@ -9,7 +9,7 @@ IPDB = "/var/lib/nra-whois/db/ipv4/"
 DOMAINDB = "/var/lib/nra-whois/db/domains/"
 debug = True
 
-folders = [DOMAINDB, IPDB]
+folders = [IPDB, DOMAINDB]
 for folder in folders:
     for the_file in os.listdir(folder):
         file_path = os.path.join(folder, the_file)
@@ -21,4 +21,3 @@ for folder in folders:
             #elif os.path.isdir(file_path): shutil.rmtree(file_path)
         except Exception as e:
             print(e)
-
