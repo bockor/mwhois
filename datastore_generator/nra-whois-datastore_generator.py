@@ -1,8 +1,5 @@
 '''
 
-N A T O    U N C L A S S I F I E D
-
-NCIA Naming & Registration's
 Simple & Versatile datastore generator for whois service
 --------------------------------------------------------
 
