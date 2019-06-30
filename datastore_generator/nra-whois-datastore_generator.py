@@ -36,7 +36,7 @@ JSON Sample output:
     "nra_info": {
       "ncn": "ncn@12",
       "itsm": "itsm@12",
-      "domain": "n12.nato.int",
+      "domain": "n12.animals.int",
       "gw": "gw@12"
     }
   },
@@ -56,7 +56,7 @@ JSON Sample output:
     "nra_info": {
       "ncn": "ncn@9",
       "itsm": "itsm@9",
-      "domain": "n9.nato.int",
+      "domain": "n9.animals.int",
       "gw": "gw@9"
     }
   },
@@ -76,7 +76,7 @@ JSON Sample output:
     "nra_info": {
       "ncn": "ncn@8",
       "itsm": "itsm@8",
-      "domain": "n8.nato.int",
+      "domain": "n8.animals.int",
       "gw": "gw@8"
     }
   },
@@ -101,10 +101,12 @@ __author__ = "bruno.on.the.road@gmail.com"
 debug = False
 
 ##### BEGIN Datastore parameters #####
+JSON_FILE_NAME = "nra-whois-fake-datastore.json"
+
 CONTAINERS_NEEDED = 1000
 IPV4_ADDRESS_BASE = "12.0.0.0/8"
 IPV4_ADDRESS_BLOCKS = 24
-JSON_FILE_NAME = "nra-whois-fake-datastore.json"
+DOMAIN_NAME_SUFFIX = ".animals"
 
 info_keys = {}
 nra_info_keys = ["domain", "itsm", "gw", "ncn"]
@@ -126,7 +128,7 @@ def generate_my_subnets():
                   
 def create_datastore_json(some_subnets):
     containers = {}
-    #counter required to generate unique domain names such as n12.nato.int
+    #counter required to generate unique domain names such as n12.animals.int
     domain_counter = 1
     if (debug):
         print ("subnets rxed from main")
@@ -137,13 +139,13 @@ def create_datastore_json(some_subnets):
     return containers
 
 def create_container(some_domain_counter):
-    global info_keys
+    global info_keys, DOMAIN_NAME_SUFFIX
     container ={}
     for info_source in info_keys:
         entries = {}
         for key in info_keys[info_source]:
             if key == "domain" :
-                value = "n" + str(some_domain_counter) + ".nato.int"
+                value = "n" + str(some_domain_counter) + DOMAIN_NAME_SUFFIX
             else:
                 value = key + '@' + str(some_domain_counter)
             entries.update({key : value})
@@ -168,3 +170,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
