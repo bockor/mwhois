@@ -70,8 +70,17 @@ LISTEN_PORT = 43
 MAX_QUERY_SIZE	= 128
 LOGFILE	="/var/log/nra-whois.log"
 n = "\r\n"
+motd = '''\
++---------------------------------+
+|             NCIA                |
++---------------------------------+
+| NAMING & REGISTRATION AUTHORITY |
++---------------------------------+
+|         whois service           |
++---------------------------------+\
+'''
 
-__version__ = 1.1
+__version__ = 1.2
 __author__ = "bruno.on.the.road@gmail.com"
 
 
@@ -124,6 +133,7 @@ def isIPv4inCIDR(ip, network):
 
 # Starts the whois daemon, validates query and responses
 def main():
+        global motd
 	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	try:
 		s.bind((LISTEN_ADDRESS, LISTEN_PORT))
@@ -141,16 +151,8 @@ def main():
 				break
 			log = log + query.replace("\r\n", "").replace("\n", "") + " - "
 			query = sanitizeQuery(query)
-
-			rsp = 		"# +---------------------------------+" + n
-			rsp = rsp + "# |             NCIA                |" + n
-			rsp = rsp + "# +---------------------------------+" + n
-			rsp = rsp + "# | NAMING & REGISTRATION AUTHORITY |" + n
-			rsp = rsp + "# +---------------------------------+" + n
-			rsp = rsp + "# |         whois service           |" + n
-			rsp = rsp + "# +---------------------------------+" + n
-			rsp = rsp + n
-
+                        # start building response here
+			rsp = motd + n
 			if(isIPv4(query)):
 				# WHOIS IPv4
 				log = log + "IPv4"
