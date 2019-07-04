@@ -1,5 +1,8 @@
 '''
 
+N A T O    U N C L A S S I F I E D
+
+NCIA Naming & Registration's
 Simple & Versatile datastore generator for whois service
 --------------------------------------------------------
 
@@ -36,7 +39,7 @@ JSON Sample output:
     "nra_info": {
       "ncn": "ncn@12",
       "itsm": "itsm@12",
-      "domain": "n12.animals.int",
+      "domain": "n12.nato.int",
       "gw": "gw@12"
     }
   },
@@ -56,7 +59,7 @@ JSON Sample output:
     "nra_info": {
       "ncn": "ncn@9",
       "itsm": "itsm@9",
-      "domain": "n9.animals.int",
+      "domain": "n9.nato.int",
       "gw": "gw@9"
     }
   },
@@ -76,7 +79,7 @@ JSON Sample output:
     "nra_info": {
       "ncn": "ncn@8",
       "itsm": "itsm@8",
-      "domain": "n8.animals.int",
+      "domain": "n8.nato.int",
       "gw": "gw@8"
     }
   },
@@ -103,15 +106,15 @@ debug = False
 ##### BEGIN Datastore parameters #####
 JSON_FILE_NAME = "nra-whois-fake-datastore.json"
 
-CONTAINERS_NEEDED = 1000
+CONTAINERS_NEEDED = 1111
 IPV4_ADDRESS_BASE = "12.0.0.0/8"
 IPV4_ADDRESS_BLOCKS = 24
-DOMAIN_NAME_SUFFIX = ".animals"
+DOMAIN_NAME_SUFFIX = ".some.tld"
 
 info_keys = {}
-nra_info_keys = ["domain", "itsm", "gw", "ncn"]
+nra_info_keys = ["domain", "itsm", "gw", "ncn", "vrf"]
 fw_info_keys = ["rack", "admin", "model", "version"]
-rs_info_keys =  ["vrf", "map", "license", "ios"]
+rs_info_keys =  ["vlan", "map", "license", "ios"]
 
 ##### END Datastore parameters #####
 
@@ -128,7 +131,7 @@ def generate_my_subnets():
                   
 def create_datastore_json(some_subnets):
     containers = {}
-    #counter required to generate unique domain names such as n12.animals.int
+    #counter required to generate unique domain names such as n12.nato.int
     domain_counter = 1
     if (debug):
         print ("subnets rxed from main")
@@ -166,8 +169,7 @@ def main():
     if (debug):
         pprint (my_datastore)
     create_json_file(my_datastore)    
-    
+    print(JSON_FILE_NAME +  " generated with " + str(CONTAINERS_NEEDED) + " containers." + "  Done!") 
 
 if __name__ == '__main__':
     main()
-
