@@ -90,11 +90,11 @@ DATA
     LOGFILE = '/var/log/nra-whois.log'
     MAX_QUERY_SIZE = 128
     __author__ = 'bruno.on.the.road@gmail.com'
-    __version__ = 1.1
+    __version__ = 1.2
     n = '\r\n'
 
 VERSION
-    1.1
+    1.2
 
 AUTHOR
     bruno.on.the.road@gmail.com
