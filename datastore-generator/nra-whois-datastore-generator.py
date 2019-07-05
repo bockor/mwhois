@@ -23,69 +23,52 @@ Help:        Python3 Tutorial - Nested Dictionaries with For Loops
 JSON Sample output:
 
 {
-  "10.220.31.0/24": {
-    "fw_info": {
-      "rack": "rack@12",
-      "version": "version@12",
-      "model": "model@12",
-      "admin": "admin@12"
+    "12.0.184.128/28": {
+        "fw_info": {
+            "admin": "admin@278",
+            "model": "model@278",
+            "rack": "rack@278",
+            "version": "version@278"
+        },
+        "nra_info": {
+            "domain": "n278.some.tld",
+            "gw": "gw@278",
+            "ipv4": "12.0.184.128/28",
+            "itsm": "itsm@278",
+            "ncn": "ncn@278",
+            "vrf": "vrf@278"
+        },
+        "rs_info": {
+            "ios": "ios@278",
+            "license": "license@278",
+            "map": "map@278",
+            "vlan": "vlan@278"
+        }
     },
-    "rs_info": {
-      "license": "license@12",
-      "vrf": "vrf@12",
-      "ios": "ios@12",
-      "map": "map@12"
+    "12.1.198.48/28": {
+        "fw_info": {
+            "admin": "admin@1051",
+            "model": "model@1051",
+            "rack": "rack@1051",
+            "version": "version@1051"
+        },
+        "nra_info": {
+            "domain": "n1051.some.tld",
+            "gw": "gw@1051",
+            "ipv4": "12.1.198.48/28",
+            "itsm": "itsm@1051",
+            "ncn": "ncn@1051",
+            "vrf": "vrf@1051"
+        },
+        "rs_info": {
+            "ios": "ios@1051",
+            "license": "license@1051",
+            "map": "map@1051",
+            "vlan": "vlan@1051"
+        }
     },
-    "nra_info": {
-      "ncn": "ncn@12",
-      "itsm": "itsm@12",
-      "domain": "n12.nato.int",
-      "gw": "gw@12"
-    }
-  },
-  "10.51.208.0/24": {
-    "fw_info": {
-      "rack": "rack@9",
-      "version": "version@9",
-      "model": "model@9",
-      "admin": "admin@9"
-    },
-    "rs_info": {
-      "license": "license@9",
-      "vrf": "vrf@9",
-      "ios": "ios@9",
-      "map": "map@9"
-    },
-    "nra_info": {
-      "ncn": "ncn@9",
-      "itsm": "itsm@9",
-      "domain": "n9.nato.int",
-      "gw": "gw@9"
-    }
-  },
-  "10.129.210.0/24": {
-    "fw_info": {
-      "rack": "rack@8",
-      "version": "version@8",
-      "model": "model@8",
-      "admin": "admin@8"
-    },
-    "rs_info": {
-      "license": "license@8",
-      "vrf": "vrf@8",
-      "ios": "ios@8",
-      "map": "map@8"
-    },
-    "nra_info": {
-      "ncn": "ncn@8",
-      "itsm": "itsm@8",
-      "domain": "n8.nato.int",
-      "gw": "gw@8"
-    }
-  },
 ...
 }
-
 
 '''
 
@@ -98,7 +81,7 @@ import os
 from netaddr import IPNetwork
 from random import sample
 
-__version__ = 1.0
+__version__ = 2.0
 __author__ = "bruno.on.the.road@gmail.com"
 
 debug = False
@@ -108,11 +91,11 @@ JSON_FILE_NAME = "nra-whois-fake-datastore.json"
 
 CONTAINERS_NEEDED = 1111
 IPV4_ADDRESS_BASE = "12.0.0.0/8"
-IPV4_ADDRESS_BLOCKS = 24
+IPV4_ADDRESS_BLOCKS = 28
 DOMAIN_NAME_SUFFIX = ".some.tld"
 
 info_keys = {}
-nra_info_keys = ["domain", "itsm", "gw", "ncn", "vrf"]
+nra_info_keys = ["ipv4", "domain", "itsm", "gw", "ncn", "vrf"]
 fw_info_keys = ["rack", "admin", "model", "version"]
 rs_info_keys =  ["vlan", "map", "license", "ios"]
 
@@ -136,12 +119,12 @@ def create_datastore_json(some_subnets):
     if (debug):
         print ("subnets rxed from main")
     for sub in some_subnets:
-        some_container = create_container(domain_counter)
+        some_container = create_container(sub, domain_counter)
         containers.update({sub:some_container})
         domain_counter += 1
     return containers
 
-def create_container(some_domain_counter):
+def create_container(some_ipv4_subnet, some_domain_counter):
     global info_keys, DOMAIN_NAME_SUFFIX
     container ={}
     for info_source in info_keys:
@@ -149,6 +132,8 @@ def create_container(some_domain_counter):
         for key in info_keys[info_source]:
             if key == "domain" :
                 value = "n" + str(some_domain_counter) + DOMAIN_NAME_SUFFIX
+            elif key == "ipv4":
+                value = some_ipv4_subnet
             else:
                 value = key + '@' + str(some_domain_counter)
             entries.update({key : value})
