@@ -1,8 +1,5 @@
 '''
 
-N A T O    U N C L A S S I F I E D
-
-NCIA Naming & Registration's
 Simple & Versatile datastore generator for whois service
 --------------------------------------------------------
 
@@ -82,7 +79,7 @@ from netaddr import IPNetwork
 from random import sample
 
 __version__ = 2.0
-__author__ = "bruno.on.the.road@gmail.com"
+__author__ = "bockor"
 
 debug = False
 

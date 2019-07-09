@@ -2,13 +2,11 @@
 
 '''
 
-N A T O    U N C L A S S I F I E D
-
-NCIA Naming & Registration's Simple whois service
+Bockor's Naming & Registration's Simple whois service
 
 Source: git clone https://github.com/DaKnOb/mwhois.git
 Reference: https://tools.ietf.org/html/rfc3912
-Modified by: bruno.seys@ncia.nato.int
+Modified by: bockor
 
 Description:
 whoisd.py is a server software compatible with the whois command
@@ -72,7 +70,7 @@ LOGFILE ="/var/log/nra-whois.log"
 n = "\r\n"
 BANNER_SECTION = '''\
 +---------------------------------+
-|             NCIA                |
+|             bockor's            |
 +---------------------------------+
 | NAMING & REGISTRATION AUTHORITY |
 +---------------------------------+
@@ -82,7 +80,7 @@ BANNER_SECTION = '''\
 QUERY_SECTION = '[Query]'
 ANSWER_SECTION = '[Answer]'
 __version__ = 1.4
-__author__ = "bruno.on.the.road@gmail.com"
+__author__ = "bockor"
 
 
 #   Sanitize the query received
