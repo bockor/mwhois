@@ -8,48 +8,51 @@ About: This tool converts a predefined structured json file into
 From:
 
 {
-    "12.135.47.0/24": {
+    "12.0.184.128/28": {
         "fw_info": {
-            "admin": "admin@2",
-            "model": "model@2",
-            "rack": "rack@2",
-            "version": "version@2"
+            "admin": "admin@278",
+            "model": "model@278",
+            "rack": "rack@278",
+            "version": "version@278"
         },
         "nra_info": {
-            "domain": "n2.some.tld",
-            "gw": "gw@2",
-            "itsm": "itsm@2",
-            "ncn": "ncn@2",
-            "vrf": "vrf@2"
+            "domain": "n278.some.tld",
+            "gw": "gw@278",
+            "ipv4": "12.0.184.128/28",
+            "itsm": "itsm@278",
+            "ncn": "ncn@278",
+            "vrf": "vrf@278"
         },
         "rs_info": {
-            "ios": "ios@2",
-            "license": "license@2",
-            "map": "map@2",
-            "vlan": "vlan@2"
+            "ios": "ios@278",
+            "license": "license@278",
+            "map": "map@278",
+            "vlan": "vlan@278"
         }
     },
-    "12.139.1.0/24": {
+    "12.1.198.48/28": {
         "fw_info": {
-            "admin": "admin@1",
-            "model": "model@1",
-            "rack": "rack@1",
-            "version": "version@1"
+            "admin": "admin@1051",
+            "model": "model@1051",
+            "rack": "rack@1051",
+            "version": "version@1051"
         },
         "nra_info": {
-            "domain": "n1.some.tld",
-            "gw": "gw@1",
-            "itsm": "itsm@1",
-            "ncn": "ncn@1",
-            "vrf": "vrf@1"
+            "domain": "n1051.some.tld",
+            "gw": "gw@1051",
+            "ipv4": "12.1.198.48/28",
+            "itsm": "itsm@1051",
+            "ncn": "ncn@1051",
+            "vrf": "vrf@1051"
         },
         "rs_info": {
-            "ios": "ios@1",
-            "license": "license@1",
-            "map": "map@1",
-            "vlan": "vlan@1"
+            "ios": "ios@1051",
+            "license": "license@1051",
+            "map": "map@1051",
+            "vlan": "vlan@1051"
         }
-    }
+    },
+...
 }
 
 To: (Notice the soft links!)
@@ -66,21 +69,22 @@ Container content:
 
 cat db/ipv4/12.139.1.0-24
 
-  [nra_info] gw         : gw@1                           
-  [nra_info] domain     : n1.some.tld                    
-  [nra_info] itsm       : itsm@1                         
-  [nra_info] vrf        : vrf@1                          
-  [nra_info] ncn        : ncn@1                          
+[nra_info] gw         : gw@32                          
+[nra_info] domain     : n32.some.tld                   
+[nra_info] itsm       : itsm@32                        
+[nra_info] ipv4       : 12.139.1.0/24                
+[nra_info] ncn        : ncn@32                         
+[nra_info] vrf        : vrf@32                         
 
-  [rs_info] map        : map@1                          
-  [rs_info] vlan       : vlan@1                         
-  [rs_info] ios        : ios@1                          
-  [rs_info] license    : license@1                      
+[rs_info] map        : map@32                         
+[rs_info] vlan       : vlan@32                        
+[rs_info] ios        : ios@32                         
+[rs_info] license    : license@32                     
 
-  [fw_info] admin      : admin@1                        
-  [fw_info] model      : model@1                        
-  [fw_info] version    : version@1                      
-  [fw_info] rack       : rack@1  
+[fw_info] admin      : admin@32                       
+[fw_info] model      : model@32                       
+[fw_info] version    : version@32                     
+[fw_info] rack       : rack@32   
 
 
 Preruiqisites:  Ensure that the /var/lib/nra-whois/db/domains/ and
