@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 '''
 
 Simple & Versatile Infoblox JSON file generator for whois service
