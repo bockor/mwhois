@@ -138,6 +138,7 @@ def main():
     except:
         print("Could not bind specified IP or Port. Already in use? Not privileged for this port?")
         exit(2)
+    # become a server socket, maximum 1 connections
     s.listen(1)
 
     while True:
