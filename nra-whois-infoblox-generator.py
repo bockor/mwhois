@@ -52,6 +52,11 @@ JSON Sample output:
   ]
 }
 
+Hint:
+One could use the jq tool now to select particul data.  Herunder find all
+generated network attributes with 4th byte equal to 192
+jq '.["result"][]["network"]' nra-whois-fake-infoblox.json | grep '.192/'
+
 '''
 
 import json
