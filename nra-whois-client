@@ -28,6 +28,18 @@ def parse_args():
 
 def recv_timeout(the_socket,timeout = 0.3):
     '''
+    TCP/IP is a stream-based protocol, not a message-based protocol. There's 
+    no guarantee that every send() call by one peer results in a single recv()
+    call by the other peer receiving the exact data sent—it might receive the
+    data piece-meal, split across multiple recv() calls, due to packet
+    fragmentation.
+
+    You need to define your own message-based protocol on top of TCP in order
+    to differentiate message boundaries. Then, to read a message, you continue
+    to call recv() until you've read an entire message or an error occurs.
+
+    Approach:
+
     1. Make the socket non-blocking. By doing this, the socket wont wait if 
        there is no data in recv calls.
        It will continue if there is no data available.
