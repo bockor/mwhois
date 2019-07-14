@@ -71,8 +71,8 @@ debug = False
 ##### BEGIN Infoblox parameters #####
 JSON_FILE_NAME = "nra-whois-fake-infoblox.json"
 
-CONTAINERS_NEEDED = 4
-IPV4_ADDRESS_BASE = "12.0.0.0/24"
+CONTAINERS_NEEDED = 4000
+IPV4_ADDRESS_BASE = "12.0.0.0/16"
 IPV4_ADDRESS_BLOCKS = 28
 
 ib_record_keys = ["_ref", "comment",  "network", "network_view"]
