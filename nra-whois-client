@@ -30,7 +30,7 @@ def recv_timeout(the_socket,timeout = 0.3):
     '''
     TCP/IP is a stream-based protocol, not a message-based protocol. There's 
     no guarantee that every send() call by one peer results in a single recv()
-    call by the other peer receiving the exact data sent—it might receive the
+    call by the other peer receiving the exact data sent. It might receive the
     data piece-meal, split across multiple recv() calls, due to packet
     fragmentation.
 
