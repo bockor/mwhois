@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 '''
 
 Simple & Versatile Infoblox JSON file generator for whois service
@@ -26,27 +24,47 @@ JSON Sample output:
     {
       "comment": "comment@1",
       "_ref": "_ref@1",
-      "network": "12.0.0.32/28",
+      "network": "12.0.0.16/28",
       "network_view": "network_view@1",
       "extattrs": {
-        "country": "country@1",
-        "routing_domain": "routing_domain@1",
-        "Gateway": "Gateway@1",
-        "ncn": "ncn@1",
-        "Site": "Site@1"
+        "country": {
+          "value": "country@1"
+        },
+        "routing_domain": {
+          "value": "routing_domain@1"
+        },
+        "Gateway": {
+          "value": "Gateway@1"
+        },
+        "ncn": {
+          "value": "ncn@1"
+        },
+        "Site": {
+          "value": "Site@1"
+        }
       }
     },
     {
       "comment": "comment@2",
       "_ref": "_ref@2",
-      "network": "12.0.0.160/28",
+      "network": "12.0.0.0/28",
       "network_view": "network_view@2",
       "extattrs": {
-        "country": "country@2",
-        "routing_domain": "routing_domain@2",
-        "Gateway": "Gateway@2",
-        "ncn": "ncn@2",
-        "Site": "Site@2"
+        "country": {
+          "value": "country@2"
+        },
+        "routing_domain": {
+          "value": "routing_domain@2"
+        },
+        "Gateway": {
+          "value": "Gateway@2"
+        },
+        "ncn": {
+          "value": "ncn@2"
+        },
+        "Site": {
+          "value": "Site@2"
+        }
       }
     }
   ]
@@ -54,7 +72,7 @@ JSON Sample output:
 
 Hint:
 One could use the jq tool now to select particul data.  Herunder find all
-generated network attributes with 4th byte equal to 192
+generated network qttributes with 4th byte equal to 192
 jq '.["result"][]["network"]' nra-whois-fake-infoblox.json | grep '.192/'
 
 '''
@@ -68,7 +86,7 @@ import os
 from netaddr import IPNetwork
 from random import sample
 
-__version__ = 1.0
+__version__ = 2.0
 __author__ = "bruno.on.the.road@gmail.com"
 
 debug = False
@@ -76,8 +94,8 @@ debug = False
 ##### BEGIN Infoblox parameters #####
 JSON_FILE_NAME = "nra-whois-fake-infoblox.json"
 
-CONTAINERS_NEEDED = 4000
-IPV4_ADDRESS_BASE = "12.0.0.0/16"
+CONTAINERS_NEEDED = 2
+IPV4_ADDRESS_BASE = "12.0.0.0/24"
 IPV4_ADDRESS_BLOCKS = 28
 
 ib_record_keys = ["_ref", "comment",  "network", "network_view"]
@@ -127,7 +145,7 @@ def create_ib_record_extattrs(some_network_counter):
     global ib_record_extattrs_keys
     some_extattrs = {}
     for key in ib_record_extattrs_keys:
-        value = key + '@' + str(some_network_counter)
+        value = { "value" : key + '@' + str(some_network_counter)}
         some_extattrs.update({key : value})
     return some_extattrs
 
