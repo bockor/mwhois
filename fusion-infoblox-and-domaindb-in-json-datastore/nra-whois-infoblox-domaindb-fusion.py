@@ -28,7 +28,8 @@ datastore = {} # final data structure to be loaded on WHOIS Server
                # in fact the DATASTORE_JSON file
 INFO_SRC = "nra_info" # group all info provided by NRA
                       # others groups can be added later
-
+IBOX_SUFFIX = ".ibox.ncia.nato.int"
+IBOX_SEQ = 10001
 ##### END Datastore parameters #####
 
 def write_infoblox_data():
@@ -38,19 +39,23 @@ def write_infoblox_data():
     ib_networks = get_ib_networks(ib_records)
     if (debug):
         pprint(ib_networks)
+    # loop thru all infoblox records
     for ib_rec in ib_records:
         container = {}
         net = ib_rec['network']
+        entries = {}
         for k,v in ib_rec.items():
-            entries =  {}
             #looking for the 'extattrs' here
-            if type(v) == dict:
-                for k_ext,v_ext in v.items():
-                    entries.update({k_ext:v_ext['value']})
-                continue    
-            entries.update({k:v})
+            if (type(v) == dict):
+                entries_xtra = {}
+                for k_extattrs,v_extattrs in v.items():
+                    if (debug):
+                         print(k_extattrs + " : " + v_extattrs['value'])
+                    entries.update({k_extattrs : v_extattrs['value']})
+            else:
+                entries.update({k:v})
         container.update({INFO_SRC : entries})
-        datastore.update({net : container})    
+        datastore.update({net : container})
     return datastore
 
 def write_domaindb_data():
