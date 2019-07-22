@@ -1,6 +1,5 @@
 #!/usr/bin/python
 '''
-ib_networks = {entry['network']:{ key:value for key, value in zip(entry.keys(),entry.values())} for entry in ib_json['result']}
 
 Fusion Infoblox & domaindb into whois datastore
 -----------------------------------------------
@@ -14,7 +13,7 @@ import json
 from pprint import pprint
 
 __version__ = 1.0
-__author__ = "bruno.on.the.road@gmail.com"
+__author__ = "bockor"
 
 debug = False
 
@@ -28,13 +27,16 @@ datastore = {} # final data structure to be loaded on WHOIS Server
                # in fact the DATASTORE_JSON file
 INFO_SRC = "nra_info" # group all info provided by NRA
                       # others groups can be added later
-IBOX_SUFFIX = ".ibox.ncia.nato.int"
-IBOX_SEQ = 10001
+# A DNS domain is essential to load the json into the file system
+# The INFOBLOX DNS entry will be overwritten by a real one if 
+# found in the domaindb json file
+INFOBLOX_SUFFIX = ".infoblox.ncia.nato.int"
+infoblox_seq = 10001
 ##### END Datastore parameters #####
 
 def write_infoblox_data():
     # ib stands for infoblox
-    global datastore, ib_networks
+    global datastore, ib_networks, INFOBLOX_SUFFIX, infoblox_seq
     ib_records = load_ib_json()['result']
     ib_networks = get_ib_networks(ib_records)
     if (debug):
@@ -54,6 +56,8 @@ def write_infoblox_data():
                     entries.update({k_extattrs : v_extattrs['value']})
             else:
                 entries.update({k:v})
+        entries.update({'DNS' : "x" + str(infoblox_seq) + INFOBLOX_SUFFIX})
+        infoblox_seq += 1        
         container.update({INFO_SRC : entries})
         datastore.update({net : container})
     return datastore

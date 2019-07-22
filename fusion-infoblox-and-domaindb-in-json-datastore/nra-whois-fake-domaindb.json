@@ -1,12 +1,5 @@
 {
-    "13.0.223.112/28": {
-        "SCMD": "SCMD@2", 
-        "PREFIX": "PREFIX@2", 
-        "LOCATION": "LOCATION@2", 
-        "DNS": "DNS@2", 
-        "WIN_DOMAIN": "WIN_DOMAIN@2"
-    }, 
-    "13.0.81.192/28": {
+    "18.0.141.144/28": {
         "SCMD": "SCMD@1", 
         "PREFIX": "PREFIX@1", 
         "LOCATION": "LOCATION@1", 
