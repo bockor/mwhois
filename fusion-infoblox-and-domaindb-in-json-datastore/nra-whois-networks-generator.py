@@ -10,10 +10,10 @@ debug = False
 
 NETWORKS_FILE = "nra_whois_fake_networks.py"
 #Infoblox networks
-IB_NETWORKS_NEEDED = 5
+IB_NETWORKS_NEEDED = 10
 #Domain database networks
-DD_NETWORKS_NEEDED = 1
-IPV4_ADDRESS_BASE = "18.0.0.0/16"
+DD_NETWORKS_NEEDED = 10
+IPV4_ADDRESS_BASE = "19.0.0.0/16"
 IPV4_ADDRESS_BLOCKS = 28
 
 def generate_all_networks():
