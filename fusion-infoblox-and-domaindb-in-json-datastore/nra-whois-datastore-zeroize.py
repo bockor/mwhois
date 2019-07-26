@@ -4,12 +4,15 @@
 
 import os, shutil
 
+__version__ = 2.0
+__author__ = "bockor"
 
 IPDB = "./db/ipv4/"
 DOMAINDB = "./db/domains/"
+CONTAINERDB = "./db/containers/"
 debug = True
 
-folders = [IPDB, DOMAINDB]
+folders = [IPDB, DOMAINDB, CONTAINERDB]
 for folder in folders:
     for the_file in os.listdir(folder):
         file_path = os.path.join(folder, the_file)
@@ -17,7 +20,8 @@ for folder in folders:
             if os.path.isfile(file_path):
                 os.unlink(file_path)
                 if (debug):
-                    print('[*] container ' + the_file + ' zeroised')
+                    print('[*] container | symlink ' + the_file + ' zeroised')
             #elif os.path.isdir(file_path): shutil.rmtree(file_path)
         except Exception as e:
             print(e)
+print('[*] Datastore zeroized. Done!')            

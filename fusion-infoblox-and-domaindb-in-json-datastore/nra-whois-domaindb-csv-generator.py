@@ -20,7 +20,7 @@ Require:	python >= 2.7
 import csv
 from nra_whois_fake_networks import dd_networks
 
-__version__ = 1.0
+__version__ = 2.0
 __author__ = "bruno.on.the.road@gmail.com"
 
 debug = False
@@ -28,6 +28,7 @@ debug = False
 ##### BEGIN  parameters #####
 CSV_FILE_NAME = "nra-whois-fake-domaindb.csv"
 csv_columns = ["LOCATION", "DNS", "WIN_DOMAIN", "SCMD", "PREFIX", "NETWORK"]
+FAKE_DOMAIN = "some.tld"
 ##### END parameters #####
 
 def write_headers():
@@ -44,6 +45,8 @@ def write_rows():
             for column in csv_columns:
                 if column == "NETWORK":
                     cell = net
+                elif column == "DNS":
+                    cell = "dns" + str(row_counter) + '.' + FAKE_DOMAIN 
                 else:    
                     cell = column + "@" + str(row_counter)
                 row.append(cell)
