@@ -77,8 +77,11 @@ cat db/containers/ a190b8bb-f44c-4c53-bc8a-6203e7d8982d
 [nra_info] Gateway              : Gateway@2
 
 
-Preruiqisites:  Ensure that the /var/lib/nra-whois/db/domains/ and
-    /var/lib/nra-whois/db/ipv4/ directories exist.
+Preruiqisites:  Ensure that the :
+    /var/lib/nra-whois/db/domains/ 
+    /var/lib/nra-whois/db/domains/
+    /var/lib/nra-whois/db/ipv4/
+directories exist.
 '''
 
 import json
