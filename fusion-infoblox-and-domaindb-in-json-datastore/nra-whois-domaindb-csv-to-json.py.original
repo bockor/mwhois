@@ -8,35 +8,36 @@ From:
 "LOCATION@2","DNS@2","WIN_DOMAIN@2","SMCD@2","PREFIX@2","12.0.160.224/28"
 
 Into:
+
 {
-    "LOCATION@15": {
-        "SCMD": "SCMD@15", 
-        "PREFIX": "PREFIX@15", 
-        "NETWORK": "19.0.205.160/28", 
-        "DNS": "dns15.some.tld", 
-        "WIN_DOMAIN": "WIN_DOMAIN@15"
+    "12.0.160.224/28": {
+        "PREFIX": "PREFIX@2", 
+        "SMCD": "SMCD@2", 
+        "LOCATION": "LOCATION@2", 
+        "DNS": "DNS@2", 
+        "WIN_DOMAIN": "WIN_DOMAIN@2"
     }, 
-    "LOCATION@14": {
-        "SCMD": "SCMD@14", 
-        "PREFIX": "PREFIX@14", 
-        "NETWORK": "19.0.111.208/28", 
-        "DNS": "dns14.some.tld", 
-        "WIN_DOMAIN": "WIN_DOMAIN@14"
+    "12.0.123.112/28": {
+        "PREFIX": "PREFIX@1", 
+        "SMCD": "SMCD@1", 
+        "LOCATION": "LOCATION@1", 
+        "DNS": "DNS@1", 
+        "WIN_DOMAIN": "WIN_DOMAIN@1"
     }
-}    
+}
 '''
 import csv
 import json
 import argparse
 from pprint import pprint
 
-__version__ = 2.0
+__version__ = 1.0
 __author__ = "bruno.on.the.road@gmail.com"
 
 csvFilePath = ""
 jsonFilePath = ""
 data = {}
-LOCATION_COLUMN = 0
+NETWORK_COLUMN = 5
 debug = False
 
 
@@ -58,7 +59,7 @@ def csvToJson(someCsvFilePath,someJsonFilePath):
     with open(someCsvFilePath, 'r') as csvFile:
         csvee = csv.reader(csvFile)
         keys = next(csvee)
-        data = { row[LOCATION_COLUMN]: {key: value for key,value in zip(keys,row) if key != 'LOCATION'} for row in csvee}
+        data = { row[NETWORK_COLUMN]: {key: value for key,value in zip(keys,row) if key != 'NETWORK'} for row in csvee}
 
     #Cant be used for our needs, but kept for later ?
     #with open(someCsvFilePath) as csvFile:

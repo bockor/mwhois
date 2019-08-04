@@ -143,7 +143,7 @@ def create_json_file(some_ib):
     if (debug): 
         pprint(some_ib, width = 40)
     with open(JSON_FILE_NAME,"w") as jf:
-        json.dump(some_ib,jf)
+        jf.write(json.dumps(some_ib, indent =4))
 
 def main():
     my_ib = populate_ib_json(ib_networks)

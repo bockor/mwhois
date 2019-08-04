@@ -1,1 +1,119 @@
-{"result": [{"comment": "comment@1", "_ref": "_ref@1", "network": "19.0.150.32/28", "network_view": "network_view@1", "extattrs": {"country": {"value": "country@1"}, "routing_domain": {"value": "routing_domain@1"}, "Gateway": {"value": "Gateway@1"}, "ncn": {"value": "ncn@1"}, "Site": {"value": "Site@1"}}}, {"comment": "comment@2", "_ref": "_ref@2", "network": "19.0.26.48/28", "network_view": "network_view@2", "extattrs": {"country": {"value": "country@2"}, "routing_domain": {"value": "routing_domain@2"}, "Gateway": {"value": "Gateway@2"}, "ncn": {"value": "ncn@2"}, "Site": {"value": "Site@2"}}}, {"comment": "comment@3", "_ref": "_ref@3", "network": "19.0.24.208/28", "network_view": "network_view@3", "extattrs": {"country": {"value": "country@3"}, "routing_domain": {"value": "routing_domain@3"}, "Gateway": {"value": "Gateway@3"}, "ncn": {"value": "ncn@3"}, "Site": {"value": "Site@3"}}}, {"comment": "comment@4", "_ref": "_ref@4", "network": "19.0.93.16/28", "network_view": "network_view@4", "extattrs": {"country": {"value": "country@4"}, "routing_domain": {"value": "routing_domain@4"}, "Gateway": {"value": "Gateway@4"}, "ncn": {"value": "ncn@4"}, "Site": {"value": "Site@4"}}}, {"comment": "comment@5", "_ref": "_ref@5", "network": "19.0.81.240/28", "network_view": "network_view@5", "extattrs": {"country": {"value": "country@5"}, "routing_domain": {"value": "routing_domain@5"}, "Gateway": {"value": "Gateway@5"}, "ncn": {"value": "ncn@5"}, "Site": {"value": "Site@5"}}}, {"comment": "comment@6", "_ref": "_ref@6", "network": "19.0.43.144/28", "network_view": "network_view@6", "extattrs": {"country": {"value": "country@6"}, "routing_domain": {"value": "routing_domain@6"}, "Gateway": {"value": "Gateway@6"}, "ncn": {"value": "ncn@6"}, "Site": {"value": "Site@6"}}}, {"comment": "comment@7", "_ref": "_ref@7", "network": "19.0.48.64/28", "network_view": "network_view@7", "extattrs": {"country": {"value": "country@7"}, "routing_domain": {"value": "routing_domain@7"}, "Gateway": {"value": "Gateway@7"}, "ncn": {"value": "ncn@7"}, "Site": {"value": "Site@7"}}}, {"comment": "comment@8", "_ref": "_ref@8", "network": "19.0.187.0/28", "network_view": "network_view@8", "extattrs": {"country": {"value": "country@8"}, "routing_domain": {"value": "routing_domain@8"}, "Gateway": {"value": "Gateway@8"}, "ncn": {"value": "ncn@8"}, "Site": {"value": "Site@8"}}}, {"comment": "comment@9", "_ref": "_ref@9", "network": "19.0.62.0/28", "network_view": "network_view@9", "extattrs": {"country": {"value": "country@9"}, "routing_domain": {"value": "routing_domain@9"}, "Gateway": {"value": "Gateway@9"}, "ncn": {"value": "ncn@9"}, "Site": {"value": "Site@9"}}}, {"comment": "comment@10", "_ref": "_ref@10", "network": "19.0.86.16/28", "network_view": "network_view@10", "extattrs": {"country": {"value": "country@10"}, "routing_domain": {"value": "routing_domain@10"}, "Gateway": {"value": "Gateway@10"}, "ncn": {"value": "ncn@10"}, "Site": {"value": "Site@10"}}}]}
+{
+    "result": [
+        {
+            "comment": "comment@1", 
+            "_ref": "_ref@1", 
+            "network": "10.90.61.0/25", 
+            "network_view": "network_view@1", 
+            "extattrs": {
+                "country": {
+                    "value": "country@1"
+                }, 
+                "routing_domain": {
+                    "value": "routing_domain@1"
+                }, 
+                "Gateway": {
+                    "value": "Gateway@1"
+                }, 
+                "ncn": {
+                    "value": "ncn@1"
+                }, 
+                "Site": {
+                    "value": "BEL AB FLORENNES"
+                }
+            }
+        }, 
+        {
+            "comment": "comment@2", 
+            "_ref": "_ref@2", 
+            "network": "10.90.62.0/24", 
+            "network_view": "network_view@2", 
+            "extattrs": {
+                "country": {
+                    "value": "country@2"
+                }, 
+                "routing_domain": {
+                    "value": "routing_domain@2"
+                }, 
+                "Gateway": {
+                    "value": "Gateway@2"
+                }, 
+                "ncn": {
+                    "value": "ncn@2"
+                }, 
+                "Site": {
+                    "value": "BEL AB KLEINE BROGEL"
+                }
+            }
+        }, 
+        {
+            "comment": "comment@3", 
+            "_ref": "_ref@3", 
+            "network": "10.90.63.0/24", 
+            "network_view": "network_view@3", 
+            "extattrs": {
+                "country": {
+                    "value": "country@3"
+                }, 
+                "routing_domain": {
+                    "value": "routing_domain@3"
+                }, 
+                "Gateway": {
+                    "value": "Gateway@3"
+                }, 
+                "ncn": {
+                    "value": "ncn@3"
+                }, 
+                "Site": {
+                    "value": "BEL AB KOKSIJDE"
+                }
+            }
+        }, 
+        {
+            "comment": "comment@4", 
+            "_ref": "_ref@4", 
+            "network": "10.90.61.128/25", 
+            "network_view": "network_view@4", 
+            "extattrs": {
+                "country": {
+                    "value": "country@4"
+                }, 
+                "routing_domain": {
+                    "value": "routing_domain@4"
+                }, 
+                "Gateway": {
+                    "value": "Gateway@4"
+                }, 
+                "ncn": {
+                    "value": "ncn@4"
+                }, 
+                "Site": {
+                    "value": "BEL AB FLORENNES COE"
+                }
+            }
+        }, 
+        {
+            "comment": "comment@5", 
+            "_ref": "_ref@5", 
+            "network": "10.90.131.0/24", 
+            "network_view": "network_view@5", 
+            "extattrs": {
+                "country": {
+                    "value": "country@5"
+                }, 
+                "routing_domain": {
+                    "value": "routing_domain@5"
+                }, 
+                "Gateway": {
+                    "value": "Gateway@5"
+                }, 
+                "ncn": {
+                    "value": "ncn@5"
+                }, 
+                "Site": {
+                    "value": "BEL AB KLEINE BROGEL"
+                }
+            }
+        } 
+    ]
+}

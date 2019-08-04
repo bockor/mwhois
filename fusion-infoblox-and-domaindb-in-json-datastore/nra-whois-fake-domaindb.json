@@ -1,72 +1,58 @@
 {
-    "19.0.150.32/28": {
-        "SCMD": "SCMD@10", 
-        "PREFIX": "PREFIX@10", 
-        "LOCATION": "LOCATION@10", 
-        "DNS": "DNS@10", 
-        "WIN_DOMAIN": "WIN_DOMAIN@10"
+    "BEL AB KOKSIJDE": {
+        "PREFIX": "SARNS", 
+        "MULTI-NET-SPAWN": [
+            "19.90.63.0/24"
+        ], 
+        "LOCATION": "BEL AB KOKSIJDE", 
+        "DNS": "sar.mil.be", 
+        "WIN_DOMAIN": "n69.mil.be", 
+        "SCMD": "BKO", 
+        "POC": "0032110003"
     }, 
-    "19.0.43.144/28": {
-        "SCMD": "SCMD@1", 
-        "PREFIX": "PREFIX@1", 
-        "LOCATION": "LOCATION@1", 
-        "DNS": "DNS@1", 
-        "WIN_DOMAIN": "WIN_DOMAIN@1"
+    "BEL AB KLEINE BROGEL": {
+        "PREFIX": "349NS", 
+        "MULTI-NET-SPAWN": [
+            "10.90.62.0/24", 
+            "10.90.131.0/24"
+        ], 
+        "LOCATION": "BEL AB KLEINE BROGEL", 
+        "DNS": "349sqn.mil.be", 
+        "WIN_DOMAIN": "n666.mil.be", 
+        "SCMD": "KBR", 
+        "POC": "0032110011"
     }, 
-    "19.0.187.0/28": {
-        "SCMD": "SCMD@5", 
-        "PREFIX": "PREFIX@5", 
-        "LOCATION": "LOCATION@5", 
-        "DNS": "DNS@5", 
-        "WIN_DOMAIN": "WIN_DOMAIN@5"
+    "BEL AB FLORENNES": {
+        "PREFIX": "2WTACNS", 
+        "MULTI-NET-SPAWN": [
+            "10.90.61.0/25"
+        ], 
+        "LOCATION": "BEL AB FLORENNES", 
+        "DNS": "2wtac.mil.be", 
+        "WIN_DOMAIN": "n666.mil.be", 
+        "SCMD": "FLO", 
+        "POC": "0032110001"
     }, 
-    "19.0.62.0/28": {
-        "SCMD": "SCMD@9", 
-        "PREFIX": "PREFIX@9", 
-        "LOCATION": "LOCATION@9", 
-        "DNS": "DNS@9", 
-        "WIN_DOMAIN": "WIN_DOMAIN@9"
+    "BEL AB MELSBROEK": {
+        "PREFIX": "10WTAC", 
+        "MULTI-NET-SPAWN": [
+            ""
+        ], 
+        "LOCATION": "BEL AB MELSBROEK", 
+        "DNS": "10wtac.mil.be", 
+        "WIN_DOMAIN": "", 
+        "SCMD": "MEL", 
+        "POC": "0032101111"
     }, 
-    "19.0.86.16/28": {
-        "SCMD": "SCMD@3", 
-        "PREFIX": "PREFIX@3", 
-        "LOCATION": "LOCATION@3", 
-        "DNS": "DNS@3", 
-        "WIN_DOMAIN": "WIN_DOMAIN@3"
-    }, 
-    "19.0.26.48/28": {
-        "SCMD": "SCMD@4", 
-        "PREFIX": "PREFIX@4", 
-        "LOCATION": "LOCATION@4", 
-        "DNS": "DNS@4", 
-        "WIN_DOMAIN": "WIN_DOMAIN@4"
-    }, 
-    "19.0.81.240/28": {
-        "SCMD": "SCMD@8", 
-        "PREFIX": "PREFIX@8", 
-        "LOCATION": "LOCATION@8", 
-        "DNS": "DNS@8", 
-        "WIN_DOMAIN": "WIN_DOMAIN@8"
-    }, 
-    "19.0.48.64/28": {
-        "SCMD": "SCMD@2", 
-        "PREFIX": "PREFIX@2", 
-        "LOCATION": "LOCATION@2", 
-        "DNS": "DNS@2", 
-        "WIN_DOMAIN": "WIN_DOMAIN@2"
-    }, 
-    "19.0.93.16/28": {
-        "SCMD": "SCMD@6", 
-        "PREFIX": "PREFIX@6", 
-        "LOCATION": "LOCATION@6", 
-        "DNS": "DNS@6", 
-        "WIN_DOMAIN": "WIN_DOMAIN@6"
-    }, 
-    "19.0.24.208/28": {
-        "SCMD": "SCMD@7", 
-        "PREFIX": "PREFIX@7", 
-        "LOCATION": "LOCATION@7", 
-        "DNS": "DNS@7", 
-        "WIN_DOMAIN": "WIN_DOMAIN@7"
+    "BEL AB FLORENNES COE": {
+        "PREFIX": "COENS", 
+        "MULTI-NET-SPAWN": [
+            "10.90.61.128/25"
+        ], 
+        "LOCATION": "BEL AB FLORENNES COE", 
+        "DNS": "coe.mil.be", 
+        "WIN_DOMAIN": "n133.mil.be", 
+        "SCMD": "FCE", 
+        "POC": "0032110001"
     }
 }
