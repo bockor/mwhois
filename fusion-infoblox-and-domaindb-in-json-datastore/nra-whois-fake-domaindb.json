@@ -1,58 +1,74 @@
 {
-    "BEL AB KOKSIJDE": {
-        "PREFIX": "SARNS", 
-        "MULTI-NET-SPAWN": [
-            "19.90.63.0/24"
-        ], 
-        "LOCATION": "BEL AB KOKSIJDE", 
-        "DNS": "sar.mil.be", 
-        "WIN_DOMAIN": "n69.mil.be", 
-        "SCMD": "BKO", 
-        "POC": "0032110003"
-    }, 
-    "BEL AB KLEINE BROGEL": {
-        "PREFIX": "349NS", 
-        "MULTI-NET-SPAWN": [
-            "10.90.62.0/24", 
-            "10.90.131.0/24"
-        ], 
-        "LOCATION": "BEL AB KLEINE BROGEL", 
-        "DNS": "349sqn.mil.be", 
-        "WIN_DOMAIN": "n666.mil.be", 
-        "SCMD": "KBR", 
-        "POC": "0032110011"
-    }, 
-    "BEL AB FLORENNES": {
+    "10.90.61.0/25": {
+        "SCMD": "FLO", 
         "PREFIX": "2WTACNS", 
-        "MULTI-NET-SPAWN": [
-            "10.90.61.0/25"
-        ], 
         "LOCATION": "BEL AB FLORENNES", 
         "DNS": "2wtac.mil.be", 
         "WIN_DOMAIN": "n666.mil.be", 
-        "SCMD": "FLO", 
-        "POC": "0032110001"
+        "POC": "32110001"
     }, 
-    "BEL AB MELSBROEK": {
+    "": {
+        "SCMD": "MEL", 
         "PREFIX": "10WTAC", 
-        "MULTI-NET-SPAWN": [
-            ""
-        ], 
         "LOCATION": "BEL AB MELSBROEK", 
         "DNS": "10wtac.mil.be", 
         "WIN_DOMAIN": "", 
-        "SCMD": "MEL", 
-        "POC": "0032101111"
+        "POC": "32101111"
     }, 
-    "BEL AB FLORENNES COE": {
+    "10.90.62.0/24": {
+        "SCMD": "KBR", 
+        "PREFIX": "KBNS", 
+        "LOCATION": "BEL AB KLEINE BROGEL", 
+        "DNS": "17sqn.mil.be", 
+        "WIN_DOMAIN": "n17.mil.be", 
+        "POC": "32110002"
+    }, 
+    "10.90.131.0/24": {
+        "SCMD": "KBR", 
+        "PREFIX": "KBNS", 
+        "LOCATION": "BEL AB KLEINE BROGEL", 
+        "DNS": "19sqn.mil.be", 
+        "WIN_DOMAIN": "n19.mil.be", 
+        "POC": "32110011"
+    }, 
+    "10.90.61.128/25": {
+        "SCMD": "FCE", 
         "PREFIX": "COENS", 
-        "MULTI-NET-SPAWN": [
-            "10.90.61.128/25"
-        ], 
         "LOCATION": "BEL AB FLORENNES COE", 
         "DNS": "coe.mil.be", 
-        "WIN_DOMAIN": "n133.mil.be", 
-        "SCMD": "FCE", 
-        "POC": "0032110001"
+        "WIN_DOMAIN": "n777.mil.be", 
+        "POC": "32110001"
+    }, 
+    "10.176.160.64/27": {
+        "SCMD": "", 
+        "PREFIX": "", 
+        "LOCATION": "BGR MFA - SOFIA", 
+        "DNS": "mfa.bg.nato.int", 
+        "WIN_DOMAIN": "", 
+        "POC": ""
+    }, 
+    "10.176.180.160/27": {
+        "SCMD": "", 
+        "PREFIX": "", 
+        "LOCATION": "BGR MFA - SOFIA", 
+        "DNS": "mfa.bg.nato.int", 
+        "WIN_DOMAIN": "", 
+        "POC": ""
+    }, 
+    "10.91.63.0/24": {
+        "SCMD": "BKO", 
+        "PREFIX": "SARNS", 
+        "LOCATION": "BEL AB KOKSIJDE", 
+        "DNS": "sar.mil.be", 
+        "WIN_DOMAIN": "n13.mil.be", 
+        "POC": "32110003"
+    }, 
+    "10.90.63.0/24": {
+        "SCMD": "BKO", 
+        "PREFIX": "SARNS", 
+        "LOCATION": "BEL AB KOKSIJDE", 
+        "DNS": "sar.mil.be", 
+        "WIN_DOMAIN": "n69.mil.be", 
+        "POC": "32110003"
     }
 }

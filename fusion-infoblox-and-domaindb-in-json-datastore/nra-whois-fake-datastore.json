@@ -1,1 +1,136 @@
-{"69.0.201.128/28": {"nra_info": {"comment": "comment@2", "ncn": "ncn@2", "network": "69.0.201.128/28", "network_view": "network_view@2", "country": "country@2", "_ref": "_ref@2", "routing_domain": "routing_domain@2", "Gateway": "Gateway@2", "Site": "Site@2"}}, "69.0.102.176/28": {"nra_info": {"comment": "comment@3", "ncn": "ncn@3", "network": "69.0.102.176/28", "network_view": "network_view@3", "country": "country@3", "_ref": "_ref@3", "routing_domain": "routing_domain@3", "Gateway": "Gateway@3", "Site": "Site@3"}}, "69.0.67.32/28": {"nra_info": {"comment": "comment@1", "ncn": "ncn@1", "network": "69.0.67.32/28", "network_view": "network_view@1", "country": "country@1", "_ref": "_ref@1", "routing_domain": "routing_domain@1", "Gateway": "Gateway@1", "Site": "Site@1"}}}
+{
+    "10.176.160.64/27": {
+        "nra_info": {
+            "comment": "comment@3", 
+            "network": "10.176.160.64/27", 
+            "WIN_DOMAIN": "", 
+            "SCMD": "", 
+            "routing_domain": "routing_domain@3", 
+            "Site": "BGR MFA - SOFIA", 
+            "DNS-ASSOCIATED-IPZ": "10.176.160.64/27 10.176.180.160/27", 
+            "POC": "", 
+            "PREFIX": "", 
+            "ncn": "ncn@3", 
+            "DNS": "mfa.bg.nato.int", 
+            "country": "country@3", 
+            "Gateway": "Gateway@3"
+        }
+    }, 
+    "10.90.131.0/24": {
+        "nra_info": {
+            "comment": "comment@5", 
+            "network": "10.90.131.0/24", 
+            "WIN_DOMAIN": "n19.mil.be", 
+            "SCMD": "KBR", 
+            "routing_domain": "routing_domain@5", 
+            "Site": "BEL AB KLEINE BROGEL", 
+            "POC": "32110011", 
+            "PREFIX": "KBNS", 
+            "ncn": "ncn@5", 
+            "DNS": "19sqn.mil.be", 
+            "country": "country@5", 
+            "Gateway": "Gateway@5"
+        }
+    }, 
+    "10.176.180.160/27": {
+        "nra_info": {
+            "comment": "comment@3", 
+            "network": "10.176.180.160/27", 
+            "WIN_DOMAIN": "", 
+            "SCMD": "", 
+            "routing_domain": "routing_domain@3", 
+            "Site": "BGR MFA - SOFIA", 
+            "DNS-ASSOCIATED-IPZ": "10.176.160.64/27 10.176.180.160/27", 
+            "POC": "", 
+            "PREFIX": "", 
+            "ncn": "BUBUBUR01 BUBUBUR02 BUBUBUR03", 
+            "DNS": "mfa.bg.nato.int", 
+            "country": "country@3", 
+            "Gateway": "Gateway@3"
+        }
+    }, 
+    "10.90.61.0/25": {
+        "nra_info": {
+            "comment": "comment@1", 
+            "network": "10.90.61.0/25", 
+            "WIN_DOMAIN": "n666.mil.be", 
+            "SCMD": "FLO", 
+            "routing_domain": "routing_domain@1", 
+            "Site": "BEL AB FLORENNES", 
+            "POC": "32110001", 
+            "PREFIX": "2WTACNS", 
+            "ncn": "ncn@1", 
+            "DNS": "2wtac.mil.be", 
+            "country": "country@1", 
+            "Gateway": "Gateway@1"
+        }
+    }, 
+    "10.90.61.128/25": {
+        "nra_info": {
+            "comment": "comment@4", 
+            "network": "10.90.61.128/25", 
+            "WIN_DOMAIN": "n777.mil.be", 
+            "SCMD": "FCE", 
+            "routing_domain": "routing_domain@4", 
+            "Site": "BEL AB FLORENNES COE", 
+            "POC": "32110001", 
+            "PREFIX": "COENS", 
+            "ncn": "ncn@4", 
+            "DNS": "coe.mil.be", 
+            "country": "country@4", 
+            "Gateway": "Gateway@4"
+        }
+    }, 
+    "10.90.62.0/24": {
+        "nra_info": {
+            "comment": "comment@2", 
+            "network": "10.90.62.0/24", 
+            "WIN_DOMAIN": "n17.mil.be", 
+            "SCMD": "KBR", 
+            "routing_domain": "routing_domain@2", 
+            "Site": "BEL AB KLEINE BROGEL", 
+            "POC": "32110002", 
+            "PREFIX": "KBNS", 
+            "ncn": "ncn@2", 
+            "DNS": "17sqn.mil.be", 
+            "country": "country@2", 
+            "Gateway": "Gateway@2"
+        }
+    }, 
+    "10.91.63.0/24": {
+        "nra_info": {
+            "comment": "comment@3", 
+            "network": "10.91.63.0/24", 
+            "WIN_DOMAIN": "n13.mil.be", 
+            "SCMD": "BKO", 
+            "routing_domain": "routing_domain@3", 
+            "Site": "BEL AB KOKSIJDE", 
+            "DNS-ASSOCIATED-IPZ": "10.91.63.0/24 10.90.63.0/24", 
+            "POC": "32110003", 
+            "PREFIX": "SARNS", 
+            "ncn": "ncn@3", 
+            "DNS-ASSOCIATED-WINZ": "n69.mil.be n13.mil.be", 
+            "DNS": "sar.mil.be", 
+            "country": "country@3", 
+            "Gateway": "Gateway@3"
+        }
+    }, 
+    "10.90.63.0/24": {
+        "nra_info": {
+            "comment": "comment@3", 
+            "network": "10.90.63.0/24", 
+            "WIN_DOMAIN": "n69.mil.be", 
+            "SCMD": "BKO", 
+            "routing_domain": "routing_domain@3", 
+            "Site": "BEL AB KOKSIJDE", 
+            "DNS-ASSOCIATED-IPZ": "10.91.63.0/24 10.90.63.0/24", 
+            "POC": "32110003", 
+            "PREFIX": "SARNS", 
+            "ncn": "ncn@3", 
+            "DNS-ASSOCIATED-WINZ": "n69.mil.be n13.mil.be", 
+            "DNS": "sar.mil.be", 
+            "country": "country@3", 
+            "Gateway": "Gateway@3"
+        }
+    }
+}

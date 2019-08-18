@@ -1,10 +1,15 @@
-{
+#!/usr/bin/python
+
+
+from pprint import pprint
+
+infoblox = {
     "result": [
         {
             "comment": "comment@3", 
             "_ref": "_ref@3", 
             "network": "10.176.180.160/27", 
-            "network_view": "default", 
+            "network_view": "NOTSOdefault", 
             "extattrs": {
                 "country": {
                     "value": "country@3"
@@ -16,11 +21,7 @@
                     "value": "Gateway@3"
                 }, 
                 "ncn": {
-                    "value": [
-                        "BUBUBUR01",
-                        "BUBUBUR02",
-                        "BUBUBUR03" 
-                    ] 
+                    "value": "ncn@3"
                 }, 
                 "Site": {
                     "value": "BGR MFA - SOFIA"
@@ -31,7 +32,7 @@
             "comment": "comment@3", 
             "_ref": "_ref@3", 
             "network": "10.176.160.64/27", 
-            "network_view": "default", 
+            "network_view": "NOTSOdefault", 
             "extattrs": {
                 "country": {
                     "value": "country@3"
@@ -190,3 +191,12 @@
         } 
     ]
 }
+
+
+
+records = infoblox['result']
+records = [record for record in records if record['network_view'] == 'default']
+
+pprint(records)
+     
+
